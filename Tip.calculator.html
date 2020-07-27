@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> Tip calculator</title>
+    <meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <style>
+  body {
+    background-color: #8fcfd1;
+  }
+  #form1 {
+    height: 700px;
+    width: 600px;
+    margin-top: 50px;
+    margin-left:300px;
+    background-color: white;
+    text-align: center;
+  }
+  #tip {
+    background-color: #ba7967;
+  }
+  #people {
+    width: 100%;
+  }
+  h3 {
+    text-align: center;
+    padding-left: 10px;
+    margin-top: 10px;
+  }
+
+  </style>
+  </head>
+  <body>
+  <form id="form1">
+
+    <div id="tip"> <h1> Tip Calculator</h1></div>
+  <p> <h2>How much was your bill</h2></p>
+ <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text">$</span>
+  </div>
+  <input type="number" id= "input1" class="form-control" aria-label="Amount (to the nearest dollar)">
+  <div class="input-group-append">
+    <span class="input-group-text">.00</span>
+  </div>
+</div>
+<h2> How many people are sharing the bill</h2>
+<input type="number" id= "people"> <br><br>
+<h2> How was your services</h2>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelect01">Tip options</label>
+  </div>
+  <select class="custom-select" id="inputGroup">
+    <option selected>Choose...</option>
+    <option value="1">Great-20%</option>
+    <option value="2">Good-10%</option>
+    <option value="3">Bad-2%</option>
+  </select>
+</div>
+<button type="button" onclick= "myfunction()" class="btn btn-success">Calculate</button>
+<br><br>
+<label> Totall Bill amount:</label>
+<h3 id="result"></h3>
+
+<label>Per Person share:</label>
+<h3 id="share"> </h3>
+
+<label>Tip amount:</label>
+<h3 id="Tipshare"> </h3>
+
+</form>
+<script>
+
+  function myfunction() {
+    var B = document.getElementById("input1").value;
+    var P = document.getElementById("people").value;
+  var Tip = $('#inputGroup option:selected').text();
+//var Tip = document.getElementById("inputGroup").innerHTML;
+//document.getElementById("Tipshare").innerHTML = Tip;
+//var Tip = "Great-20%";
+var L = parseInt(B);
+var M = parseInt(P);
+var x;
+switch(Tip) {
+    case "Great-20%":
+      x = (L/100)*20;
+    break;
+    case "Good-10%":
+    x = (L/100)*10;
+    break;
+    case "Bad-2%":
+    x = (L/100)*2;
+    break;
+    default:
+    x = 0;
+  }
+
+  document.getElementById("Tipshare").innerHTML = x;
+
+  document.getElementById("result").innerHTML = L+x;
+  document.getElementById("share").innerHTML = (L+x)/M;
+
+
+}
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  </body>
+</html>
